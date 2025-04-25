@@ -1,9 +1,12 @@
 [package]
 name = "solicitantes"
 version = "0.1.0"
-edition = "2024"
-
-[dependencies]
-soroban-sdk = "22.0.0"
+edition = "2021"
 [lib]
-create-type = ["cdylib","lib"]
+crate-type = ["cdylib"]  # ¡ESTA LÍNEA ES IMPRESCINDIBLE!
+[dependencies]
+soroban-sdk = "22.0.7"
+[profile.release]
+opt-level = "z"
+lto = true
+panic = "abort"
